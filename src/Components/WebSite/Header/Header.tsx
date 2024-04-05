@@ -6,7 +6,7 @@ export default function WebSiteHeader() {
     <Header.Box className={HeaderStyle.HeaderBox}>
       <div className={HeaderStyle.HeaderDiv}>
         <Header.Logo src="/navbar-mobile/logo.png" />
-        <Header.Navbar className={"flex gap-2"}>
+        <Header.Navbar className={"flex gap-4"}>
           <Header.Link className={HeaderStyle.HeaderLink} href="/">
             Home
           </Header.Link>
