@@ -1,13 +1,20 @@
 "use client";
 import { Menu, X } from "lucide-react";
 import React, { ComponentProps, useEffect, useState } from "react";
+
 export default function Navbar({ children, ...props }: ComponentProps<"nav">) {
   const [flipflop, setFlipflop] = useState(false);
-  let [windowSize, setWindowSize] = useState(window.screen.width);
+  let [windowSize, setWindowSize] = useState(0);
+
+  const resize = () => {
+    setWindowSize(screen.width);
+  };
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowSize(window.screen.width));
+    window.addEventListener("resize", () => resize);
   }, []);
+
   console.log(windowSize);
+
   if (windowSize < 768) {
     return (
       <>
