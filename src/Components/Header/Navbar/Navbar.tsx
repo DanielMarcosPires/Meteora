@@ -4,16 +4,21 @@ import React, { ComponentProps, useEffect, useState } from "react";
 
 export default function Navbar({ children, ...props }: ComponentProps<"nav">) {
   const [flipflop, setFlipflop] = useState(false);
-  let [windowSize, setWindowSize] = useState(0);
+  let [windowSize, setWindowSize] = useState(1);
+  
+  
+  const handleWindowResize = () => {
+    setWindowSize(window.innerWidth);
+  }
 
-  const resize = () => {
-    setWindowSize(screen.width);
-  };
   useEffect(() => {
-    window.addEventListener("resize", () => resize);
+    // component is mounted and window is available
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+    // unsubscribe from the event on component unmount
+    return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
-
-  console.log(windowSize);
+  console.log(windowSize)
 
   if (windowSize < 768) {
     return (
