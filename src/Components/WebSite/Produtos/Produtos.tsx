@@ -1,6 +1,9 @@
 import React from "react";
-
-export default function Produtos() {
+interface ProdutosProps{
+  color:string;
+}
+export default function Produtos({color}: ProdutosProps) {
+  console.log(color)
   return (
     <section className="flex flex-col items-center">
       <h2 className="font-semibold text-2xl text-center w-[85%] py-4">
@@ -16,7 +19,7 @@ export default function Produtos() {
               verão. Modelagem unissex.
             </p>
             <span className="block py-2 font-bold">R$ 70,00</span>
-            <button className="bg-[#9353ff] text-white p-2 px-3">Ver mais</button>
+            <button style={{background:color[3]}} className=" text-white p-2 px-3">Ver mais</button>
           </div>
         </li>
         <li className={"w-80 border overflow-hidden rounded-lg"}>
@@ -25,7 +28,7 @@ export default function Produtos() {
             <h3 className="font-bold text-xl">Calça Alfaiataria</h3>
             <p className="py-1">Modelo Wide Leg alfaiataria em linho. Uma peça pra vida toda!</p>
             <span className="block py-2 font-bold">R$ 70,00</span>
-            <button className="bg-[#9353ff] text-white p-2 px-3">Ver mais</button>
+            <button style={{background:color[3]}} className=" text-white p-2 px-3">Ver mais</button>
           </div>
         </li>
       </ul>

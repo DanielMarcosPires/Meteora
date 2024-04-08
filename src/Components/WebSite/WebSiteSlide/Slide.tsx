@@ -8,7 +8,7 @@ interface WebSiteSlide {
 
 export default function WebSiteSlide({ children }: Readonly<WebSiteSlide>) {
   return (
-    <div>
+    <div className="bg-black">
       <AliceCarousel
         disableButtonsControls
         disableDotsControls

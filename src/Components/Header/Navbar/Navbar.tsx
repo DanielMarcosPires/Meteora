@@ -5,20 +5,18 @@ import React, { ComponentProps, useEffect, useState } from "react";
 export default function Navbar({ children, ...props }: ComponentProps<"nav">) {
   const [flipflop, setFlipflop] = useState(false);
   let [windowSize, setWindowSize] = useState(1);
-  
-  
   const handleWindowResize = () => {
     setWindowSize(window.innerWidth);
-  }
+  };
 
   useEffect(() => {
     // component is mounted and window is available
     handleWindowResize();
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
     // unsubscribe from the event on component unmount
-    return () => window.removeEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
-  console.log(windowSize)
+  console.log(windowSize);
 
   if (windowSize < 768) {
     return (
@@ -30,15 +28,15 @@ export default function Navbar({ children, ...props }: ComponentProps<"nav">) {
           {flipflop && (
             <div
               onClickCapture={() => setFlipflop(!flipflop)}
-              className="absolute z-50 top-0 left-0 w-screen h-screen bg-black/40"
+              className="absolute left-0 top-0 z-50 h-screen w-screen bg-black/40"
             >
-              <nav className="bg-[#343a40] p-1 right-0  absolute w-48">
+              <nav className="absolute right-0 w-48  bg-[#343a40] p-1">
                 <header className="flex justify-end">
                   <button onClick={() => setFlipflop(!flipflop)}>
                     <X size={40} color="#daff01" />
                   </button>
                 </header>
-                <div className="p-4  flex flex-col">{children}</div>
+                <div className="flex  flex-col p-4">{children}</div>
               </nav>
             </div>
           )}
