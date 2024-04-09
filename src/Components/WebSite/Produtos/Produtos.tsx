@@ -1,37 +1,45 @@
 import React from "react";
-interface ProdutosProps{
-  color:string;
+import { CardProdutos } from "./CardProdutos";
+interface ProdutosProps {
+  color: string;
 }
-export default function Produtos({color}: ProdutosProps) {
-  console.log(color)
+export default function Produtos({ color }: ProdutosProps) {
+  console.log(color);
   return (
-    <section className="flex flex-col items-center">
-      <h2 className="font-semibold text-2xl text-center w-[85%] py-4">
+    <section className="flex flex-col items-center py-4">
+      <h2 className="w-[85%] py-4 text-center text-2xl font-semibold">
         Produtos que estão bombando!
       </h2>
-      <ul className="flex justify-center flex-wrap gap-4">
-        <li className={"w-80 border overflow-hidden rounded-lg"}>
-          <img src="/card/calça.png" alt="teste" />
-          <div className="px-5 py-2">
-            <h3 className="font-bold text-xl">Camiseta Conforto</h3>
-            <p className="py-1">
+      <CardProdutos.Box className="border-red flex flex-wrap gap-7">
+        <li className="w-80">
+          <CardProdutos.Produtos src="/card/camiseta.png" alt="" />
+          <CardProdutos.Description>
+            <h2 className="text-xl font-bold">Camiseta Conforto</h2>
+            <p className="my-2">
               Multicores e tamanhos. Tecido de algodão 100%, fresquinho para o
               verão. Modelagem unissex.
             </p>
-            <span className="block py-2 font-bold">R$ 70,00</span>
-            <button style={{background:color[3]}} className=" text-white p-2 px-3">Ver mais</button>
-          </div>
+            <p>R$ 180,00</p>
+            <button className="p-2 text-white" style={{ background: color[3] }}>
+              Ver mais
+            </button>
+          </CardProdutos.Description>
         </li>
-        <li className={"w-80 border overflow-hidden rounded-lg"}>
-          <img src="/card/camiseta.png" alt="teste" />
-          <div className="px-5 py-2">
-            <h3 className="font-bold text-xl">Calça Alfaiataria</h3>
-            <p className="py-1">Modelo Wide Leg alfaiataria em linho. Uma peça pra vida toda!</p>
-            <span className="block py-2 font-bold">R$ 70,00</span>
-            <button style={{background:color[3]}} className=" text-white p-2 px-3">Ver mais</button>
-          </div>
+        <li className="w-80">
+          <CardProdutos.Produtos src="/card/camiseta.png" alt="" />
+          <CardProdutos.Description>
+            <h2 className="text-xl font-bold">Camiseta Conforto</h2>
+            <p className="my-2">
+              Multicores e tamanhos. Tecido de algodão 100%, fresquinho para o
+              verão. Modelagem unissex.
+            </p>
+            <p>R$ 180,00</p>
+            <button className="p-2 text-white" style={{ background: color[3] }}>
+              Ver mais
+            </button>
+          </CardProdutos.Description>
         </li>
-      </ul>
+      </CardProdutos.Box>
     </section>
   );
 }

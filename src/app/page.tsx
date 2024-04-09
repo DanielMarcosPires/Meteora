@@ -9,8 +9,8 @@ import { Grid2X2, RefreshCcw } from "lucide-react";
 
 export default async function Home() {
   const mongo = new MongoDatabase();
-  let {Primary}= await mongo.color() as any
-  console.log(Primary)
+  let {Primary, Complementary}= await mongo.color() as any
+  console.log(Complementary)
   return (
     <div style={{background:Primary[4]}}>
       <WebSiteHeader color={Primary} />
